@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#d71920" />
+  <title>WESTSIDE Hosting — Minecraft Server Hosting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-mark">W</span>
+        <span><b>WESTSIDE</b><small>HOSTING</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+      <button class="nav-item" data-page="console"><span>⌘</span> Console</button>
+      <button class="nav-item" data-page="files"><span>▤</span> Files</button>
+      <button class="nav-item" data-page="settings"><span>⚙</span> Settings</button>
+      <div class="side-bottom">
+        <div class="help-card"><span class="help-icon">?</span><b>Need help?</b><p>Our community is here to help you build.</p><a href="mailto:support@royyhosting.com">Contact support ↗</a></div>
+        <div class="profile"><div class="avatar">R</div><div><b>Royy</b><small>Free account</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <b>Overview</b></div>
+        <div class="top-actions"><span class="status-dot"></span><span class="top-status">All systems demo</span><button class="icon-btn" title="Notifications">♧</button></div>
+      </header>
+
+      <section class="content">
+        <div class="welcome-row">
+          <div><div class="eyebrow">MINECRAFT SERVER PANEL</div><h1>Welcome back, Royy<span class="red">.</span></h1><p>Manage your world. Create something legendary.</p></div>
+          <button class="primary-btn" id="createBtn"><span>＋</span> Create server</button>
+        </div>
+
+        <div class="notice"><span class="notice-symbol">i</span><div><b>Welcome to the WESTSIDE preview</b><p>This is a front-end demo. Server controls are simulated until a hosting backend is connected.</p></div><button class="notice-close" id="noticeClose">×</button></div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>YOUR SERVERS</span><span class="stat-icon">▣</span></div><strong id="serverCount">1</strong><small>Server in your workspace</small></article>
+          <article class="stat-card"><div class="stat-top"><span>MEMORY ALLOCATION</span><span class="stat-icon">▥</span></div><strong>4 <em>GB</em></strong><small>Free plan limit (demo)</small></article>
+          <article class="stat-card"><div class="stat-top"><span>PLAN</span><span class="stat-icon">◇</span></div><strong>Free</strong><small>No payment in this preview</small></article>
+        </div>
+
+        <div class="section-heading"><div><h2>Your servers</h2><p>Start, stop and manage your Minecraft worlds.</p></div><button class="text-btn" id="refreshBtn">↻ Refresh</button></div>
+        <article class="server-card">
+          <div class="server-main">
+            <div class="server-cube">▦</div>
+            <div class="server-info"><div class="server-title-row"><h3 id="serverName">My Minecraft Server</h3><span class="pill stopped" id="serverStatus">● Offline</span></div><p>Java Edition <span>•</span> Vanilla <span>•</span> 1.21.x</p><div class="server-address"><code id="serverAddress">play.westside.example</code><button id="copyAddress" title="Copy address">▢</button></div></div>
+          </div>
+          <div class="server-metrics"><div><small>RAM</small><b>4 GB</b></div><div><small>PLAYERS</small><b id="players">0 / 20</b></div><div><small>UPTIME</small><b id="uptime">—</b></div></div>
+          <div class="server-actions"><button class="start-btn" id="powerBtn">▶ Start</button><button class="more-btn" id="moreBtn">•••</button></div>
+        </article>
+
+        <div class="bottom-grid">
+          <article class="panel-card"><div class="panel-head"><h3>Quick actions</h3><span>✦</span></div><button class="quick-action" id="openConsole"><span class="quick-icon">⌘</span><span><b>Open console</b><small>View server output</small></span><span class="arrow">→</span></button><button class="quick-action" id="openSettings"><span class="quick-icon">⚙</span><span><b>Server settings</b><small>Configure your world</small></span><span class="arrow">→</span></button></article>
+          <article class="panel-card promo"><div class="promo-tag">WESTSIDE COMMUNITY</div><h3>Your next adventure<br>starts here.</h3><p>Bring your friends and build a world that lasts.</p><a href="https://discord.com" target="_blank" rel="noreferrer">Join the community ↗</a><div class="promo-orb"></div></article>
+        </div>
+        <footer>© 2026 WESTSIDE Hosting <span>•</span> royyhosting.com <span class="footer-right">Made for Minecraft players</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="createModal" hidden>
+    <div class="modal">
+      <button class="modal-x" id="modalClose">×</button><div class="eyebrow">NEW WORLD</div><h2>Create a server</h2><p>Set up your Minecraft server workspace.</p>
+      <label>Server name<input id="newServerName" value="My New Server" maxlength="32"></label>
+      <label>Edition<select id="edition"><option>Java Edition</option><option>Bedrock Edition</option></select></label>
+      <label>Software<select id="software"><option>Vanilla</option><option>Paper</option><option>Fabric</option><option>Forge</option></select></label>
+      <div class="modal-note">Free plan preview · Up to 4 GB RAM shown in this demo.</div>
+      <button class="primary-btn full" id="confirmCreate">Create demo server</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
